@@ -9,9 +9,11 @@ public class Main {
 	sc=new Scanner(System.in);
     Node root =createTree();
     inOrder(root);
-        System.out.println( );
+        System.out.println("In Order: ");
     preOrder(root);
-        System.out.println( );
+        System.out.println("Pre-order: " );
+    postOrder(root);
+        System.out.println("post-order: ");
 
     }
     static Node createTree()
@@ -29,6 +31,7 @@ public class Main {
         root.left=createTree();
         System.out.println("Enter the right node: "+ data);
         root.right=createTree();
+
 
         return root;
 
@@ -55,7 +58,16 @@ public class Main {
         preOrder(root.left);
         preOrder(root.right);
     }
-
+static void postOrder(Node root)
+{
+    if(root == null)
+    {
+        return;
+    }
+    postOrder(root.left);
+    postOrder(root.right);
+    System.out.print(root.data +" ");
+}
 
 }
 class Node
