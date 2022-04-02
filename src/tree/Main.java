@@ -9,6 +9,9 @@ public class Main {
 	sc=new Scanner(System.in);
     Node root =createTree();
     inOrder(root);
+        System.out.println( );
+    preOrder(root);
+        System.out.println( );
 
     }
     static Node createTree()
@@ -38,10 +41,21 @@ public class Main {
             return;
         }
         inOrder(root.left);
-        System.out.println(root.data);
+        System.out.print(root.data+" ");
         inOrder(root.right);
 
     }
+    static void preOrder(Node root)
+    {
+        if (root== null)
+        {
+            return;
+        }
+        System.out.print(root.data+" ");
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+
 
 }
 class Node
