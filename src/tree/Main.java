@@ -14,6 +14,8 @@ public class Main {
         System.out.println("Pre-order: " );
     postOrder(root);
         System.out.println("post-order: ");
+    height(root);
+        System.out.println("Height is: ");
 
     }
     static Node createTree()
@@ -67,6 +69,14 @@ static void postOrder(Node root)
     postOrder(root.left);
     postOrder(root.right);
     System.out.print(root.data +" ");
+}
+static int height(Node root)
+{
+    if (root==null)
+    {
+        return 0;
+    }
+    return Math.max(height(root.left),height(root.right))+1;
 }
 
 }
